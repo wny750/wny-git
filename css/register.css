@@ -1,0 +1,21 @@
+#register{background:#f6f6f6;overflow: hidden;}
+#register .left{float:left;width:550px;height:200px;margin-top:30px;position: relative;overflow: hidden;}
+#register .left .box a{position: absolute;left:650px;top:0;}
+#register .left .box a img{width:550px;height:200px;}
+#register .left .box a:nth-child(1){left:0}
+#register .left .btn *{border:none;position: absolute;top:85px;background:rgba(255,255,255,.6);width:50px;height:30px;text-align: center;color:#FF472B;outline:none;cursor: pointer;}
+#register .left #left{left:0;}
+#register .left #right{right:0;}
+#register .left ul{position: absolute;bottom:0;left:0;right:0;margin: 0 auto;height:33px;font:12px/33px "";display:flex;width:550px;}
+#register .left ul li{flex:1;text-align: center;background:rgba(0,0,0,.1);height:33px;border-right:1px solid #fff;}
+#register .left ul li:nth-child(4){border:none;}
+#register .left ul li a{color: #fff;}
+#register form{display:flex; flex-direction:column; float:right; border:1px solid #ddd;padding:30px; margin:30px 0 30px 0 ; background-color: #fff;}
+#register form .register-header{text-align:center; font:16px/30px ""; }
+#register form .register-header a{color:#000;margin:0 auto;}
+#register form input{ border:1px solid #ddd; width:300px; height:30px; margin-top:10px;padding-left:5px;}
+#register form .te1{font:16px/40px "";color:#ddd;height:40px;display: block;}
+#register form input.submit{height:40px; background-color: #FF472B; border:none; font:20px/25px ""; color:#fff;margin-top:10px;}
+#register form div.youxiang{height:30px;display:none;margin-bottom:20px;}
+#register form div.youxiang input{width:140px;height:30px;}
+#register form div.youxiang input.te{color:#3b3b3a;}
