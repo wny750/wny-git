@@ -1,0 +1,8 @@
+main{border: 1px solid gold;}
+/* main .list1 li>img{margin-top:10px;} */
+main .list1 li .border{border-bottom:1px solid #000;width:100%;}
+main .list1 .list2{display:flex;width:100%;flex-wrap: wrap;justify-content: space-between;position: relative;}
+main .list1 .list2 li{width:180px;height:300px;margin-top:10px;text-align: center;}
+main .list1 .list2 li em{width:180px;height:30px;background:#88f;display:block;font:14px/30px "";}
+/* main .list1 .list2 li p{} */
+main .list1 .list2 li p.te{text-decoration:line-through;}

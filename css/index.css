@@ -1,6 +1,6 @@
 /* main{} */
 main .top{margin-top:10px;}
-main .lunbo{height:500px;}
+main .lunbo{height:400px;}
 main .lunbo .lunbo1{position: relative;margin-top:10px;width:730px;height:395px;float:left;overflow: hidden;}
 main .lunbo .lunbo1 .box1{padding:1px;border:1px solid #d5d5d5;width:726px;height:391px;margin:0 auto;}
 main .lunbo .lunbo1 .box1 a{position: absolute;width:726px;height:391px;left:726px;}
@@ -18,9 +18,10 @@ main .lunbo .lunbo2  ul li{text-align: center;width:72px;float:left;background:r
 main .lunbo .lunbo2  ul li:nth-child(3){border:none;width:74px;}
 main .lunbo .lunbo2  ul li a{color: #fff;display: block;}
 
-#main{height:1000px;}
-#main .list1 li{margin-top:20px;}
-#main .list1 .list2{margin-top:10px;height:270px;}
-#main .list1 .list2 li{width:180px;float:left;margin-right:10px;}
-#main .list1 .list2 li p{text-decoration:line-through }
+/* #main{height:2000px;} */
+#main .list1 li>img{margin-top:20px;}
+#main .list1 li .border{border-bottom:1px solid #000;width:100%;}
+#main .list1 .list2{display:flex;width:100%;flex-wrap: wrap;justify-content: space-between;}
+#main .list1 .list2 li{width:180px;height:280px;}
+#main .list1 .list2 li p{text-decoration:line-through;}
 #main .list1 .list2 li p:last-child{text-decoration:none }

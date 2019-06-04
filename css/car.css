@@ -1,0 +1,11 @@
+main{border:1px solid #E5DDC7;}
+main .top a{display: block;margin-right:9px;float:left;}
+main .top a:nth-child(3){display: block;margin-right:0;}
+main .car{background:#F5F4EC;padding:10px;}
+main .car h3{margin-left:5px;font:16px/30px "";}
+main .car p{margin-left:15px;font:12px/20px "";}
+main table{width:100%;}
+main table thead{font:16px/40px "";}
+main table tbody{font:14px/40px "";}
+main .tab img{width:50px;}
+main .tab span{width:60px;height:40px;line-height: 40px;display: block;text-align: center;cursor: pointer;text-align: center;}

@@ -69,11 +69,11 @@
                 <li><a href="##">真皮牛皮女包</a></li>
             </ul>
         </div>
-        <form action="">    
+        <form action="" class="form">    
             <p class="register-header"> <a href="#">普通账号注册</a> <span>|</span> <a href="#">手机号码注册</a> <span>|</span><a href="#">邮箱注册</a> </p>
-            <input type="tel" class="tel" placeholder="输入账号">
-            <input type="password" class="password" placeholder="密码:请输入0~20字符,需同时包含英文和数字"> 
-            <input type="password" class="password1" placeholder="再次输入密码">
+            <input type="tel" class="tel" placeholder="输入账号" name="user" required maxlength="10" minlength="5">
+            <input type="password" class="password" placeholder="密码:请输入6~20字符,需同时包含英文和数字" name="pass" required id="p" minlength="5"> 
+            <input type="password" class="password1" placeholder="再次输入密码" name="pass2" required equalTo="#p">
             <div class="zifu">
                 <input type="text" placeholder="请输入图片字符">    
             </div>
@@ -143,7 +143,10 @@
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/jquery.banner.1.1.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.validate.messages_zh.js"></script>
 <script>
+    $(".form").validate();
 $("#register .left").banner({
     items:$(".left").children(".box").children("a"),
     left:$(".left").find("#left"),

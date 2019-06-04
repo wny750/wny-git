@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
-    <link rel="stylesheet" href="css/index.css">
+    <title>list</title>
+    <link rel="stylesheet" href="css/list.css">
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="css/baobao.css">
 </head>
@@ -50,43 +50,6 @@
         </div>
     </nav>
     <main class="margin">
-        <div class="top">
-            <a href="index.html"><img src="http://www.bagsnet.com/images//20190218/760126b68a2d337a.jpg" alt=""></a>
-            <a href=""><img src="http://www.bagsnet.com/images//20190218/897f781fda731bf3.jpg" alt=""></a>
-            <a href="index.html"><img src="http://www.bagsnet.com/images//20170303/ff81aa19e041f970.gif" alt=""></a>
-        </div>
-        <div class="lunbo">
-            <div class="lunbo1">
-                <div class="box1">
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop001.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop002.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop003.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop004.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop005.jpg" alt=""></a>
-                </div>
-                <ul>
-                    <li><a href="">品牌时尚女包</a></li>
-                    <li><a href="">梦特娇正品男包</a></li>
-                    <li><a href="">正品男士皮带</a></li>
-                    <li><a href="">威豪旅行休闲背包</a></li>
-                    <li><a href="">ABS炫彩拉杆箱</a></li>
-                </ul>
-            </div>
-            <div class="lunbo2">
-                <div class="box2">
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop-b001.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop-b002.jpg" alt=""></a>
-                    <a href=""><img src="http://www.bagsnet.com/ad/pop-b003.jpg" alt=""></a>
-                </div>
-                <ul>
-                    <li><a href="">梦特娇</a></li>
-                    <li><a href="">宾格男包</a></li>
-                    <li><a href="">AOVO</a></li>
-                </ul>
-            </div>
-        </div>
-    </main>
-    <section id="main" class="margin">
         <ul class="list1">
             <li>
                 <img src="http://www.bagsnet.com/themes/mbaobao/images/qing1.gif" alt="">
@@ -113,7 +76,7 @@
                 </ul>
             </li>
         </ul>
-    </section>
+    </main>
     <footer>
         <div class="margin">
             <div class="box1">
@@ -169,111 +132,106 @@
     </section>
 </body>
 <script src="js/jquery.js"></script>
-<script src="js/jquery.banner.1.1.js"></script>
 <script src="js/ajax.2.0.js"></script>
+<script src="js/cookie.js"></script>
 <script>
-    $(".lunbo1").banner({
-        items:$(".lunbo1 .box1").children(""),
-        list:true,
-        autoPlay:true
-        
-    });
-
-    $(".lunbo2").banner({
-        items:$(".lunbo2 .box2").children(""),
-        list:true,
-        autoPlay:true
-        
-    });
-    class Index{
+class List{
         constructor(){
-            this.p1 = document.querySelector(".txt1");
-            this.p2 = document.querySelector(".txt2");
-            this.span = document.querySelector(".dddd");
-            this.exit = document.querySelector(".txt2 #exit")
-            this.getData()
-            this.addEvent();
+            this.list1 = document.querySelector(".list1")
+            this.cont = document.querySelectorAll("main .list1 .list2");
+            this.url = "http://localhost/wny-git/php/goods.json";
+            this.init();
+            this.add()
         }
-        getData(){
-            this.abc = localStorage.getItem("abc");
-            // 读取localStorage，如果有就解析成数组，如果没有就给一个空数组，方便操作
-            if(this.abc == null){
-                this.abc = [];
-            }else{
-                this.abc = JSON.parse(this.abc)
-            }
-            this.panduan()
-            // console.log(this.span)
-        }
-        panduan(){
-            for(var i=0;i<this.abc.length;i++){
-                if(this.abc[i].onoff == 1){
-                    this.p1.style.display ="none";
-                    this.p2.style.display ="block";
-                    this.span.innerHTML = this.abc[i].user;
-                    this.successUser = this.abc[i].user;
-                    return;
-                }
-            }
-            this.p1.style.display ="block";
-            this.p2.style.display ="none";
-                
-        }
-        
-        addEvent(){
+        init(){
             var that = this;
-            // console.log(this.exit)
-            this.exit.onclick = function(){
-                console.log(that.successUser)
-                if(that.successUser){
-                    for(var i=0;i<that.abc.length;i++){
-                        if(that.abc[i].user === that.successUser){
-                            that.abc[i].onoff = 0;
-                            localStorage.setItem("abc",JSON.stringify(that.abc))
-                            that.panduan();
-                        }
-                    }
+            ajax({
+                url:this.url,
+                success:function(res){
+                    that.res = JSON.parse(res);
+                    // console.log(that.res)
+
+                    that.display()
                 }
+            })
+        }
+        display(){
+            var str = "";
+            for(var i=0;i<this.res.length;i++){
+                console.log(this.res[i].newprice)
+                str += `<li class="wny" index="${this.res[i].goodsId}" pri="${this.res[i].newprice}">
+                            <img src="${this.res[i].src}">
+                            <a>${this.res[i].name}</a>
+                            <p class="te">市场价：￥${this.res[i].oldprice}</p>
+                            <p>销售价：￥${this.res[i].newprice}</p>
+                            <em class="btn">加入购物车</em>
+                        </li>`       
+                }
+                
+            for(var i = 0;i<this.cont.length;i++){
+                this.cont[i].innerHTML = str;
             }
         }
-    }
-
-    new Index();
-    class List{
-			constructor(){
-				this.cont = document.querySelectorAll("#main .list1 .list2");
-				this.url = "http://localhost/wny-git/php/goods.json";
-
-				this.init();
-			}
-			init(){
-				var that = this;
-				ajax({
-					url:this.url,
-					success:function(res){
-						// console.log(res)
-						that.res = JSON.parse(res);
-
-						that.display()
-					}
-				})
-			}
-			display(){
-				var str = "";
-				for(var i=0;i<this.res.length;i++){
-					str += `<li class="box" index="${this.res[i].goodsId}">
-								<img src="${this.res[i].src}">
-                                <a>${this.res[i].name}</a>
-                                
-                                <p>市场价：￥${this.res[i].oldprice}</p>
-                                <p>销售价：￥${this.res[i].newprice}</p>
-							</li>`
+        add(){
+            var that = this;
+            this.list1.addEventListener("click",function(eve){
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if(target.className == "btn"){
+                    that.id = target.parentNode.getAttribute("index");
+                    that.pri =target.parentNode.getAttribute("pri");
+                    // console.log(that.pri)
+                    that.setCookie()
                 }
-                for(var i = 0;i<this.cont.length;i++){
-                    this.cont[i].innerHTML = str;
-                }
-			}
+            })
         }
-        new List;
+        setCookie(){
+				// 点击商品的情况
+				// 存cookie，存什么格式的字符
+					// 商品：对象		{id:,num:}
+					// 所有商品：数组	[{id:,num:},{id:,num:},{id:,num:}]
+				
+				// 3.先获取cookie用来判断第一次还是后面的次
+				this.goods = getCookie("shangpin");
+				// 开始判断
+				if(this.goods){
+					// 5.之后点击，先解析数据
+					// console.log(this.goods);
+					// console.log(JSON.parse(this.goods));
+					this.goods = JSON.parse(this.goods);
+					
+					// 6.判断点的是否是重复数据
+					var onoff = true;
+					
+					for(var i=0;i<this.goods.length;i++){
+						if(this.goods[i].id == this.id){
+							// 是重复数据
+							this.goods[i].num ++;
+							onoff = false;
+						}
+					}
+					// 7.点的是新数据
+					if(onoff){
+						this.goods.push({
+							id:this.id,
+                            num:1,
+                            money:this.pri
+						})
+                    }
+                    
+				}else{
+					// 4.第一次点击，直接存
+					this.goods = [{
+						id:this.id,
+                        num:1,
+                        money:this.pri
+					}]
+				}
+				// 8.以上都只是在操作数组，最后要设置回cookie
+				setCookie("shangpin",JSON.stringify(this.goods))
+			}
+    }
+    new List;
+    
 </script>
 </html>
