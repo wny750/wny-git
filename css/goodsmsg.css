@@ -10,15 +10,15 @@ main .top a:nth-child(3){display: block;margin-right:0;}
 #main .left li{float:left;}
 #main .left li a{display:block}
 #main .left li a img{width:82px;height:82px;border:1px #ddd solid;}
-#main .left li a img:hover{border:1px red solid;}
+#main .left li a img:hover{border:1px #ce1919 solid;}
 #main .left li p{color:#333;} 
 #main .left li p span{color:#ce1919;font-weight: 900;} 
 #main .center{width:420px;position: absolute;left:215px;top:0;}
-#main .center img{width:420px;height:420px;}
+#main .center img{width:420px;height:420px;border:1px solid #ce1919}
 #main .center span{position: absolute;left:0;top:0;width:100px;height:100px;background: rgba(200,200,200,0.5);display:none;}
 #main .right{width:310px;position: absolute;right:0;top:0;}
 #main .right .none{display:none;position: absolute;left:20px;top:0;width:300px;height:300px;overflow: hidden;}
-#main .right .none img{width:1200px;height:1200px;position: absolute;}
+#main .right .none img{width:800px;height:800px;position: absolute;}
 #main .right .have{display:block;}
 #main .right h3{border-bottom:1px dashed #a6a6a6;color:#333;padding-bottom:5px;}
 #main .right p{font:16px/30px "";color:#333;}

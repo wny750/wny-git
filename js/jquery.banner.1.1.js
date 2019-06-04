@@ -99,7 +99,7 @@
                 lineHeight:"14px",
                 textAlign:"center",
                 fontSize:"14px",
-                color:"red"
+                color:"rgba(0,0,0,.5)"
             }).eq(index).css({
                 background:"rgba(0,0,0,.5)"
             })
@@ -119,10 +119,10 @@
             
             // L3.list的功能-绑定事件
             $(".list"+items.length+"").children("li").click(function(){
-                console.log(index)
+                // console.log(index)
                 // L4.判断方向，计算索引
                 if($(this).index() > index){
-                    console.log("left",index,$(this).index())
+                    // console.log("left",index,$(this).index())
                     // L5-1.移动
                     move(1,index,$(this).index())
                 }
@@ -133,7 +133,7 @@
                 }
                 
                 // L6.设置list的当前项
-                $(".list"+items.length+"").children("li").eq(index).css({background:""}).end().eq($(this).index()).css({background:"red"})
+                $(".list"+items.length+"").children("li").eq(index).css({background:""}).end().eq($(this).index()).css({background:"rgba(0,0,0,.5)"})
 
                 // L7.点击移动之后，将点击的设置成下一次的当前
                 index = $(this).index();

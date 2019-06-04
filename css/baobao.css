@@ -7,9 +7,9 @@ header{height:80px;}
 header .txt1{float:left;}
 header .txt2{display:none;float:left;}
 header .left{float:left;margin-top:3px;}
-header .right{float:right;width:460px;font-size:14px;}
+header .right{float:right;width:500px;font-size:14px;}
 header .right .top{margin:5px 5px 0 0;float:right}
-header .right .bottom{float:left;margin-top:6px;height:16px;width:460px;display:flex;justify-content: space-between}
+header .right .bottom{float:left;margin-top:6px;height:16px;width:500px;display:flex;justify-content: space-between}
 /* header .right .bottom .bt1{} */
 header .right .bottom .bt2{color:#c00;background:url(../img/cart.gif) no-repeat left;background-size:120px 16px;width:106px;display:block;padding-left:20px;margin-left:12px;margin-right:0;}
 /* header .right .bottom .bt2 a{font:14px/16px "";} */
@@ -27,9 +27,8 @@ header .right .bottom a:nth-child(5){padding:0 5px 0 5px;border-right:1px solid 
 nav{height:35px;background:#333;margin-bottom:20px;}
 nav ul{width:720px;height:35px;float: left;}
 nav ul li{float:left;width:90px;font:14px/35px "";text-align: center;}
-nav ul li.te{background:#F47601}
 nav ul li a{display:block;color:#fff;}
-nav form{float: left;margin-top:4px;}
+nav form{float: left;margin-top:4px;margin-left:20px;}
 nav form .txt{width:130px;color:#666;float: left;padding:6px 0 6px 0;display: block;border: #c7c3c4 0px solid;}
 nav form .sub{float:right;display: block;background: url(../img/search.gif) no-repeat;width:68px;height:27px;border:none;overflow: hidden;margin-left:0;background-size:68px 27px;cursor: pointer;}
 

@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="margin">
-        <div class="left"><a href="index.html"><img src="http://www.bagsnet.com/images/default/20111208/7690a92fa291ff12.jpg" alt=""></a></div>
+        <div class="left"><a href="list.html"><img src="http://www.bagsnet.com/images/default/20111208/7690a92fa291ff12.jpg" alt=""></a></div>
         <div class="right">
             <div class="top">
                 <a href="index.html"><img src="http://www.bagsnet.com/themes/mbaobao/images/t11.gif" alt=""></a>
@@ -34,7 +34,7 @@
     <nav>
         <div class="margin">
             <ul>
-                <li class="te"><a href="">首页</a></li>
+                <li><a href="index.html">首页</a></li>
                 <li><a href="">女包</a></li>
                 <li><a href="">男包</a></li>
                 <li><a href="">钱包带夹</a></li>
@@ -167,10 +167,22 @@
         <a href="">Powered by <b style="color:#5c719e">Shop</b><b style="color:#f39000">Ex</b></a><span> v4.8.5</span>
         <a href="">粤ICP 05015913</a>
     </section>
+    <section class="dianti" style="position:fixed;bottom:120px;right:0;background: chartreuse;width:60px;height:112px;text-align: center;font:14px/2 '';">
+        <p style="border-bottom:1px dashed #fff;">新品推荐</p>
+        <p style="border-bottom:1px dashed #fff;">热销女包</p>
+        <p style="border-bottom:1px dashed #fff;">时尚女包</p>
+        <p>经典款</p>
+    </section>
+    <section class="twolist">
+        <ul>
+            
+        </ul>
+    </section>
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/jquery.banner.1.1.js"></script>
 <script src="js/ajax.2.0.js"></script>
+<script src="js/public.js"></script>
 <script>
     $(".lunbo1").banner({
         items:$(".lunbo1 .box1").children(""),
@@ -182,8 +194,8 @@
     $(".lunbo2").banner({
         items:$(".lunbo2 .box2").children(""),
         list:true,
-        autoPlay:true
-        
+        autoPlay:true,
+        delayTime:200
     });
     class Index{
         constructor(){
@@ -239,6 +251,7 @@
     }
 
     new Index();
+
     class List{
 			constructor(){
 				this.cont = document.querySelectorAll("#main .list1 .list2");
@@ -261,8 +274,10 @@
 			display(){
 				var str = "";
 				for(var i=0;i<this.res.length;i++){
-					str += `<li class="box" index="${this.res[i].goodsId}">
-								<img src="${this.res[i].src}">
+                    str += `<li class="box" index="${this.res[i].goodsId}">
+                                <a href="商品详情${i+1}.html">
+                                <img src="${this.res[i].src}">
+                                </a>
                                 <a>${this.res[i].name}</a>
                                 
                                 <p>市场价：￥${this.res[i].oldprice}</p>
@@ -274,6 +289,24 @@
                 }
 			}
         }
-        new List;
+    new List;
+
+    $(".dianti").children("p").click(function(){
+        
+        $("html").animate({
+            scrollTop:$("#main .list1").children("li").eq($(this).index()).offset().top
+        })
+    })
+    for(var i=0;i<$("nav .margin ul").children("li").length;i++){
+        ali[i] = document.createElement("li");
+
+    }
+    var a2list = document.querySelector(".twolist ul");
+    a2list.appendChild(ali);
+    $("nav .margin ul").children("li").hover(function(){
+        $(".twolist ul").children("li").eq($(this).index()).css("display","block");
+    },function(){
+        $(".twolist ul").children("li").eq($(this).index()).css("display","none");
+    })
 </script>
 </html>

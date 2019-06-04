@@ -34,7 +34,7 @@
     <nav>
         <div class="margin">
             <ul>
-                <li class="te"><a href="">首页</a></li>
+                <li><a href="index.html">首页</a></li>
                 <li><a href="">女包</a></li>
                 <li><a href="">男包</a></li>
                 <li><a href="">钱包带夹</a></li>
@@ -130,11 +130,23 @@
         <a href="">Powered by <b style="color:#5c719e">Shop</b><b style="color:#f39000">Ex</b></a><span> v4.8.5</span>
         <a href="">粤ICP 05015913</a>
     </section>
+    <section class="dianti" style="position:fixed;bottom:120px;right:0;background: chartreuse;width:60px;height:100px;text-align: center;font:14px/24px '';">
+        <p style="border-bottom:1px dashed #fff;">新品推荐</p>
+        <p style="border-bottom:1px dashed #fff;">热销女包</p>
+        <p style="border-bottom:1px dashed #fff;">时尚女包</p>
+        <p>经典款</p>
+    </section>
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/ajax.2.0.js"></script>
 <script src="js/cookie.js"></script>
+<script src="js/public.js"></script>
 <script>
+    $(".dianti").children("p").click(function(){
+        $("html").animate({
+            scrollTop:$("main .list1").children("li").eq($(this).index()).offset().top
+        })
+    })
 class List{
         constructor(){
             this.list1 = document.querySelector(".list1")
@@ -158,21 +170,23 @@ class List{
         display(){
             var str = "";
             for(var i=0;i<this.res.length;i++){
-                console.log(this.res[i].newprice)
+                // console.log(this.res[i].newprice)
                 str += `<li class="wny" index="${this.res[i].goodsId}" pri="${this.res[i].newprice}">
+                            <a href="商品详情${i+1}.html">
                             <img src="${this.res[i].src}">
+                            </a>
                             <a>${this.res[i].name}</a>
                             <p class="te">市场价：￥${this.res[i].oldprice}</p>
                             <p>销售价：￥${this.res[i].newprice}</p>
-                            <em class="btn">加入购物车</em>
+                            <em class="btn">加入购物车</em>                           
                         </li>`       
-                }
-                
+                }                
             for(var i = 0;i<this.cont.length;i++){
                 this.cont[i].innerHTML = str;
             }
         }
         add(){
+            
             var that = this;
             this.list1.addEventListener("click",function(eve){
                 var e = eve || window.event;
@@ -182,6 +196,10 @@ class List{
                     that.pri =target.parentNode.getAttribute("pri");
                     // console.log(that.pri)
                     that.setCookie()
+                }
+                if(target.className == "wny2"){
+                    that.id = target.parentNode.getAttribute("index");
+                    console.log(1)
                 }
             })
         }
@@ -233,5 +251,6 @@ class List{
     }
     new List;
     
+
 </script>
 </html>

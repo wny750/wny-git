@@ -34,7 +34,7 @@
     <nav>
         <div class="margin">
             <ul>
-                <li class="te"><a href="">首页</a></li>
+                <li><a href="index.html">首页</a></li>
                 <li><a href="">女包</a></li>
                 <li><a href="">男包</a></li>
                 <li><a href="">钱包带夹</a></li>
@@ -145,6 +145,7 @@
 <script src="js/jquery.banner.1.1.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="js/jquery.validate.messages_zh.js"></script>
+<script src="js/public.js"></script>
 <script>
     $(".form").validate();
 $("#register .left").banner({
@@ -202,9 +203,11 @@ class Register{
                     pass:this.pass.value,
                     onoff:1
                 })
+                
+
                 this.span.innerHTML = "注册成功 ,3s后自动跳转";
                 localStorage.setItem("abc",JSON.stringify(this.abc));
-                setTimeout(()=>{
+                var timer = setTimeout(()=>{
                         location.href = "index.html";
                         },3000)
                     return;

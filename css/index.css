@@ -1,4 +1,4 @@
-/* main{} */
+
 main .top{margin-top:10px;}
 main .lunbo{height:400px;}
 main .lunbo .lunbo1{position: relative;margin-top:10px;width:730px;height:395px;float:left;overflow: hidden;}
@@ -22,6 +22,11 @@ main .lunbo .lunbo2  ul li a{color: #fff;display: block;}
 #main .list1 li>img{margin-top:20px;}
 #main .list1 li .border{border-bottom:1px solid #000;width:100%;}
 #main .list1 .list2{display:flex;width:100%;flex-wrap: wrap;justify-content: space-between;}
-#main .list1 .list2 li{width:180px;height:280px;}
+#main .list1 .list2 li{width:180px;height:300px;}
 #main .list1 .list2 li p{text-decoration:line-through;}
-#main .list1 .list2 li p:last-child{text-decoration:none }
+#main .list1 .list2 li p:last-child{text-decoration:none;color:#ce1919;font:16px/20px "";}
+
+
+.twolist ul li{position:absolute;top:115px;left:152px;background:red;width:90px;height:100px;display:none;}
+
+
