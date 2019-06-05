@@ -175,7 +175,11 @@
     </section>
     <section class="twolist">
         <ul>
-            
+           <li><img src="http://www.bagsnet.com/ad/nvbao659-1.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/nanbao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/qianbao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/beibao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/laganxiang659.jpg" alt=""></li>
         </ul>
     </section>
 </body>
@@ -183,6 +187,7 @@
 <script src="js/jquery.banner.1.1.js"></script>
 <script src="js/ajax.2.0.js"></script>
 <script src="js/public.js"></script>
+<script src="js/listall.js"></script>
 <script>
     $(".lunbo1").banner({
         items:$(".lunbo1 .box1").children(""),
@@ -252,44 +257,7 @@
 
     new Index();
 
-    class List{
-			constructor(){
-				this.cont = document.querySelectorAll("#main .list1 .list2");
-				this.url = "http://localhost/wny-git/php/goods.json";
-
-				this.init();
-			}
-			init(){
-				var that = this;
-				ajax({
-					url:this.url,
-					success:function(res){
-						// console.log(res)
-						that.res = JSON.parse(res);
-
-						that.display()
-					}
-				})
-			}
-			display(){
-				var str = "";
-				for(var i=0;i<this.res.length;i++){
-                    str += `<li class="box" index="${this.res[i].goodsId}">
-                                <a href="商品详情${i+1}.html">
-                                <img src="${this.res[i].src}">
-                                </a>
-                                <a>${this.res[i].name}</a>
-                                
-                                <p>市场价：￥${this.res[i].oldprice}</p>
-                                <p>销售价：￥${this.res[i].newprice}</p>
-							</li>`
-                }
-                for(var i = 0;i<this.cont.length;i++){
-                    this.cont[i].innerHTML = str;
-                }
-			}
-        }
-    new List;
+    
 
     $(".dianti").children("p").click(function(){
         
@@ -297,16 +265,15 @@
             scrollTop:$("#main .list1").children("li").eq($(this).index()).offset().top
         })
     })
-    for(var i=0;i<$("nav .margin ul").children("li").length;i++){
-        ali[i] = document.createElement("li");
 
-    }
-    var a2list = document.querySelector(".twolist ul");
-    a2list.appendChild(ali);
-    $("nav .margin ul").children("li").hover(function(){
-        $(".twolist ul").children("li").eq($(this).index()).css("display","block");
+    $("nav ul").find("li").hover(function(){
+        if($(this).index()-1 >=0){
+        $(".twolist ul").children("li").eq($(this).index()-1).css("display","block").siblings().css("display","none");
+        }
     },function(){
-        $(".twolist ul").children("li").eq($(this).index()).css("display","none");
+            $(".twolist ul").children("li").mouseleave(function(){
+                $(this).css("display","none")
+            })
     })
 </script>
 </html>

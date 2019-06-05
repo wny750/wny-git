@@ -143,6 +143,7 @@
 <script>
     class Car{
         constructor(){
+            this.table = document.querySelector("table")
             this.tbody = document.querySelector("tbody");
             this.url = "http://localhost/wny-git/php/goods.json";
             this.downs = document.querySelectorAll(".down"); //一组减的按钮 
@@ -168,9 +169,13 @@
             })
         }
         getcookie(){
-            // console.log(getCookie("shangpin"))
+            if(getCookie("shangpin") !=undefined){
+                this.table.style.display = "block"
                 this.goods = JSON.parse(getCookie("shangpin"));
                 this.display();   
+            }else{
+                this.table.style.display = "none"
+            }
         }
         display(){
             // var that = this;

@@ -71,18 +71,18 @@
             </ul>
         </div>
         <div class="center">
-            <img src="http://www.bagsnet.com/images/goods/20110718/fa8059dd00d658f0.jpg" alt="">
+            <img alt="">
             <span></span>
         </div>
         <div class="right">
             <div class="none">
-                <img src="http://www.bagsnet.com/images/goods/20110718/fa8059dd00d658f0.jpg" alt="">
+                <img alt="">
             </div>
             <div class="have">
-                <h3>【厂家批发】时尚休闲女包/ol通勤女包斜挎休闲包包外贸原单</h3>
-                <p>市场价￥437</p>
-                <p>销售价<span>￥236</span></p>
-                <p>节省￥201</p>
+                <h3></h3>
+                <p>市场价￥<b></b></p>
+                <p>销售价￥<span></span></p>
+                <p>节省￥<em></em></p>
                 <input type="submit" value="">
             </div>
         </div>
@@ -142,6 +142,7 @@
     </section>
 </body>
 <script src="js/jquery.js"></script>
+<script src="js/ajax.2.0.js"></script>
 <script src="js/public.js"></script>
 <script>
         function Magnifier(){
@@ -218,6 +219,53 @@
 		}
 		
         new Magnifier();
-        
+    ;(function(){
+    "use strict";
+    class Goods{
+        constructor(){
+            this.ah3 = document.querySelector("#main .have h3");
+            this.oldprice = document.querySelector("#main .have p b");
+            this.newprice = document.querySelector("#main .have p span");
+            this.sImg = document.querySelector("#main .center img");
+            this.bImg = document.querySelector("#main .right .none img");
+            this.sheng = document.querySelector("#main .right .have p em")
+            this.url = "http://localhost/wny-git/php/goods.json";
+
+            this.init();
+            // this.addEvent();
+        }
+        init(){
+            var that = this;
+            ajax({
+                url:this.url,
+                success:function(res){
+                    that.res = JSON.parse(res);
+                    // console.log(that.res);
+                    that.getData();
+                }
+            })
+        }
+        getData(){
+            this.goods = localStorage.getItem("data");
+            // console.log(this.goods)
+            this.display();
+        }
+        display(){
+            for(let i=0;i<this.res.length;i++){
+                if(this.goods == this.res[i].goodsId){
+                    this.ah3.innerHTML=this.res[i].name;
+                    this.oldprice.innerHTML = this.res[i].oldprice;
+                    this.newprice.innerHTML = this.res[i].newprice;
+                    this.sImg.src = this.res[i].src;
+                    this.bImg.src = this.res[i].src;
+                    this.sheng.innerHTML = this.res[i].oldprice - this.res[i].newprice;
+                }
+
+            }
+        }
+    }
+
+    new Goods;
+})();            
 </script>
 </html>
