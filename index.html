@@ -182,6 +182,15 @@
            <li><img src="http://www.bagsnet.com/ad/laganxiang659.jpg" alt=""></li>
         </ul>
     </section>
+    <section class="sanlist">
+        <ul>
+            <li><img src="http://www.bagsnet.com/ad/pop001.jpg" alt=""></li>
+            <li><img src="http://www.bagsnet.com/ad/pop002.jpg" alt=""></li>
+            <li><img src="http://www.bagsnet.com/ad/pop003.jpg" alt=""></li>
+            <li><img src="http://www.bagsnet.com/ad/pop004.jpg" alt=""></li>
+            <li><img src="http://www.bagsnet.com/ad/pop005.jpg" alt=""></li>
+        </ul>
+    </section>
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/jquery.banner.1.1.js"></script>
@@ -269,11 +278,18 @@
     $("nav ul").find("li").hover(function(){
         if($(this).index()-1 >=0){
         $(".twolist ul").children("li").eq($(this).index()-1).css("display","block").siblings().css("display","none");
+        $(".twolist ul").children("li").eq($(this).index()-1).hover(function(){
+            // console.log(1)
+            $(".sanlist ul").children("li").eq($(this).index()).css("display","block").siblings().css("display","none")
+        },function(){
+            $(".sanlist ul").children("li").eq($(this).index()).css("display","none").siblings().css("display","none")
+        })
         }
     },function(){
             $(".twolist ul").children("li").mouseleave(function(){
                 $(this).css("display","none")
             })
     })
+
 </script>
 </html>

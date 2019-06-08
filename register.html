@@ -26,7 +26,7 @@
                     <a href="##">帮助</a>
                 </div>
                 <div class="bt2">
-                    <a href="##">我的购物车<b>(0)</b></a>
+                    <a href="car.html">我的购物车<b>(0)</b></a>
                 </div>
             </div>
         </div>
@@ -147,7 +147,7 @@
 <script src="js/jquery.validate.messages_zh.js"></script>
 <script src="js/public.js"></script>
 <script>
-    $(".form").validate();
+    
 $("#register .left").banner({
     items:$(".left").children(".box").children("a"),
     left:$(".left").find("#left"),
@@ -179,6 +179,8 @@ class Register{
             this.span = document.querySelector(".te1");
             this.init();
             this.getData();
+            $(".form").validate()
+            console.log($(".form").validate())
         }
         init(){
             var that = this;
@@ -196,6 +198,8 @@ class Register{
             }
         }
         setData(){
+            
+            $(".form").validate();
             if(this.abc.length == 0){
                 // 第一次注册
                 this.abc.push({
@@ -239,7 +243,7 @@ class Register{
             //         },3000)
         }
     }
-
+    
     new Register;
 </script>
 </html>

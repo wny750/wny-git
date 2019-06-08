@@ -130,11 +130,20 @@
         <a href="">Powered by <b style="color:#5c719e">Shop</b><b style="color:#f39000">Ex</b></a><span> v4.8.5</span>
         <a href="">粤ICP 05015913</a>
     </section>
-    <section class="dianti" style="position:fixed;bottom:120px;right:0;background: chartreuse;width:60px;height:100px;text-align: center;font:14px/24px '';">
+    <section class="dianti" style="position:fixed;bottom:120px;right:0;background: gold;width:60px;height:100px;text-align: center;font:14px/24px '';">
         <p style="border-bottom:1px dashed #fff;">新品推荐</p>
         <p style="border-bottom:1px dashed #fff;">热销女包</p>
         <p style="border-bottom:1px dashed #fff;">时尚女包</p>
         <p>经典款</p>
+    </section>
+    <section class="twolist">
+        <ul>
+           <li><img src="http://www.bagsnet.com/ad/nvbao659-1.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/nanbao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/qianbao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/beibao659.jpg" alt=""></li> 
+           <li><img src="http://www.bagsnet.com/ad/laganxiang659.jpg" alt=""></li>
+        </ul>
     </section>
 </body>
 <script src="js/jquery.js"></script>
@@ -250,7 +259,15 @@ class List{
 			}
     }
     new List;
-    
+$("nav ul").find("li").hover(function(){
+    if($(this).index()-1 >=0){
+    $(".twolist ul").children("li").eq($(this).index()-1).css("display","block").siblings().css("display","none");
+    }
+},function(){
+        $(".twolist ul").children("li").mouseleave(function(){
+            $(this).css("display","none")
+        })
+}) 
 
 </script>
 </html>
